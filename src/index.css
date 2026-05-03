@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  --color-brand-bg: #ffffff;
+  --color-brand-surface: #f8f8f8;
+  --color-brand-text: #09090b;
+  --color-emerald-accent: #059669; /* Emerald 600 for better visibility on white */
+  --color-glass: rgba(0, 0, 0, 0.03);
+}
+
+@layer base {
+  body {
+    @apply bg-brand-bg text-brand-text font-sans antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display tracking-tight text-brand-text;
+  }
+}
+
+@layer components {
+  .container-wide {
+    @apply max-w-7xl mx-auto px-6 lg:px-12;
+  }
+
+  .premium-card {
+    @apply bg-white border border-zinc-200 shadow-sm transition-all duration-500 hover:shadow-md hover:border-emerald-accent/30;
+  }
+
+  .micro-label {
+    @apply font-mono text-[10px] uppercase tracking-[0.2em] text-zinc-500;
+  }
+
+  .input-field {
+    @apply w-full bg-zinc-50 border border-zinc-200 px-4 py-3 font-display focus:border-emerald-accent outline-none transition-colors;
+  }
+}
