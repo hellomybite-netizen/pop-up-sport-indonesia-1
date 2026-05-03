@@ -29,7 +29,7 @@ const DEFAULT_CONTENT: SiteContent = {
     subtitle: "Solusi konstruksi premium untuk Padel, Tennis, dan Lapangan Olahraga berstandar internasional di seluruh Indonesia.",
     primaryCta: "Lihat Katalog",
     secondaryCta: "Konsultasi Teknis",
-    backgroundImage: "https://images.unsplash.com/photo-1626248801379-51a0748a5f96?q=80&w=2600&auto=format&fit=crop"
+    backgroundImage: import.meta.env.BASE_URL + "hero-headline.jpg"
   },
   narrative: {
     label: "Project Narrative",
@@ -54,12 +54,12 @@ const ContentContext = createContext<ContentContextType | undefined>(undefined);
 
 export const ContentProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [content, setContent] = useState<SiteContent>(() => {
-    const saved = localStorage.getItem("site_content");
+    const saved = localStorage.getItem("site_content_v2");
     return saved ? JSON.parse(saved) : DEFAULT_CONTENT;
   });
 
   useEffect(() => {
-    localStorage.setItem("site_content", JSON.stringify(content));
+    localStorage.setItem("site_content_v2", JSON.stringify(content));
   }, [content]);
 
   const updateContent = (newContent: Partial<SiteContent>) => {
